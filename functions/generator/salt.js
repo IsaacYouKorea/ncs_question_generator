@@ -16,7 +16,10 @@ module.exports = [
       const valueA = (diffA / diff) * d;
       const valueB = (diffB / diff) * d;
       const result = Number(Math.abs(valueA - valueB).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, null, 'g')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, null, 'g')
+      }
     }
   },
   {
@@ -29,7 +32,10 @@ module.exports = [
       const percentC = c / 100;
       const target = ( (percentC * b) - (percentA * b)) / (1 - percentC);
       const result = Number(Math.abs(target).toFixed(2));
-      return [a, b, c, result, ...createExampleList(result, null, 'g')];
+      return {
+        args: [a, b, c],
+        examples: createExampleList(result, null, 'g')
+      }
     }
   }
 ];

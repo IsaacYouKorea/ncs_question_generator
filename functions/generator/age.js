@@ -14,7 +14,10 @@ module.exports = [
       const a = mom - result;
       const b = son - result;
 
-      return [a, b, c, result, ...createExampleList(result, null, '년')];
+      return {
+        args: [a, b, c],
+        examples: createExampleList(result, null, '년')
+      }
     }
   }
 ];

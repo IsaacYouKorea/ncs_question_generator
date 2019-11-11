@@ -7,7 +7,10 @@ module.exports = [
       const a = getRandomValue(1, 11);
       const b = a + 1;
       const result = Number((a * 30 / 5.5).toFixed(2));
-      return [a, b, result, ...createExampleList(result)];
+      return {
+        args: [a, b],
+        examples: createExampleList(result)
+      }
     }
   },
   {
@@ -16,7 +19,10 @@ module.exports = [
       const a = getRandomValue(1, 11);
       const b = a + 1;
       const result = Number(((a * 30 + 180) / 5.5).toFixed(2));
-      return [a, b, result, ...createExampleList(result)];
+      return {
+        args: [a, b],
+        examples: createExampleList(result)
+      }
     }
   }
 ];

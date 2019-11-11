@@ -14,7 +14,10 @@ module.exports = [
       const faultB = Math.round((b * 100) * (d / 100));
       const faultTotal = faultA + faultB;
       const result = Number((faultA / faultTotal * 100).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      }
     }
   },
   {
@@ -28,7 +31,10 @@ module.exports = [
       const faultB = Math.round((b * 100) * (d / 100));
       const faultTotal = faultA + faultB;
       const result = Number((faultB / faultTotal * 100).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      }
     }
   },
   {
@@ -42,7 +48,11 @@ module.exports = [
       const normalB = Math.round((b * 100) * ((100 - d) / 100));
       const normalTotal = normalA + normalB;
       const result = Number((normalA / normalTotal * 100).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      };
     }
   },
   // {

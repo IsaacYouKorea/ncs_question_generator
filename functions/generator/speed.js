@@ -11,7 +11,10 @@ module.exports = [
       const c = getRandomValue(200, 500, 10);
       const d = getRandomValue(10, 20);
       const result = Number(Math.abs(((b * c) - (d * a)) / (d - b)).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, null, 'm')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, null, 'm')
+      }
     }
   },
   {
@@ -21,7 +24,11 @@ module.exports = [
       const b = getRandomValue(30, 300);
       const speed = (a * 10 / 36);
       const result = Number(Math.abs(a / speed).toFixed(2));
-      return [a, b, result, ...createExampleList(result, null, '초')];
+
+      return {
+        args: [a, b],
+        examples: createExampleList(result, null, '초')
+      }
     }
   },
   {
@@ -33,7 +40,10 @@ module.exports = [
       const b = sum - a;
       const time = length / sum;
       const result = a * time;
-      return [length, a, b, result, ...createExampleList(result, null, 'm')];
+      return {
+        args: [length, a, b],
+        examples: createExampleList(result, null, 'm')
+      }
     }
   }
 ];

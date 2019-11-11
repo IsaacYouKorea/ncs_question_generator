@@ -12,7 +12,10 @@ module.exports = [
       const singleWoman = getRandomValue(3, woman);
       const singleTotal = singleMan + singleWoman;
       const result = Number((singleWoman / singleTotal * 100).toFixed(2));
-      return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+      return {
+        args: [man, woman, singleMan, singleWoman],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      }
     }
   },
   {
@@ -24,7 +27,10 @@ module.exports = [
       const singleWoman = getRandomValue(3, woman);
       const singleTotal = singleMan + singleWoman;
       const result = Number((singleMan / singleTotal * 100).toFixed(2));
-      return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+      return {
+        args: [man, woman, singleMan, singleWoman],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      }
     }
   },
   {
@@ -36,7 +42,10 @@ module.exports = [
       const singleWoman = getRandomValue(3, woman);
       const coupleTotal = (man - singleMan) + (woman - singleWoman);
       const result = Number(( (man - singleMan) / coupleTotal * 100).toFixed(2));
-      return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+      return {
+        args: [man, woman, singleMan, singleWoman],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      }
     }
   },
   {
@@ -48,7 +57,10 @@ module.exports = [
       const singleWoman = getRandomValue(3, woman);
       const coupleTotal = (man - singleMan) + (woman - singleWoman);
       const result = Number(( (woman - singleWoman) / coupleTotal * 100).toFixed(2));
-      return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
+      return {
+        args: [man, woman, singleMan, singleWoman],
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+      }
     }
   },
   {
@@ -66,7 +78,10 @@ module.exports = [
 
       result = result * 100;
 
-      return [totalBall, blueBall, whiteBall, extractCount, ...createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')];
+      return {
+        args: [totalBall, blueBall, whiteBall],
+        examples: createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')
+      }
     },
   },
   {
@@ -85,7 +100,10 @@ module.exports = [
 
       result = 100 - (result * 100);
 
-      return [totalBall, blueBall, whiteBall, redBall, extractCount, ...createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')];
+      return {
+        args: [totalBall, blueBall, whiteBall, redBall],
+        examples: createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')
+      }
     },
   }
 ];

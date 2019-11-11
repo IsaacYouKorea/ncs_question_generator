@@ -20,7 +20,10 @@ module.exports = [
       const total = a + b + c + d + e + f + g + h + i + j;
       const result = Number((total / 10).toFixed(2));
 
-      return [a, b, c, d, e, f, g, h, i, j, result, ...createExampleList(result, 2, 'cm')];
+      return {
+        args: [a, b, c, d, e, f, g, h, i, j],
+        examples: createExampleList(result, 2, 'cm')
+      }
     }
   },
   {
@@ -40,7 +43,10 @@ module.exports = [
       const total = a + b + c + d + e + f + g + h + i + j;
       const result = Number((total / 10).toFixed(2));
 
-      return [a, b, c, d, e, f, g, h, i, j, result, ...createExampleList(result, 2, 'kg')];
+      return {
+        args: [a, b, c, d, e, f, g, h, i, j],
+        examples: createExampleList(result, 2, 'kg')
+      }
     }
   },
   {
@@ -60,7 +66,10 @@ module.exports = [
       const total = a + b + c + d + e + f + g + h + i + j;
       const result = Number((total / 10).toFixed(2));
 
-      return [a, b, c, d, e, f, g, h, i, j, result, ...createExampleList(result, 2, 'mm')];
+      return {
+        args: [a, b, c, d, e, f, g, h, i, j],
+        examples: createExampleList(result, 2, 'mm')
+      }
     }
   }
 ];

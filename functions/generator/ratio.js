@@ -17,7 +17,10 @@ module.exports = [
       const d = newBoys + newGirs;
       const e = a > d ? '감소' : '증가';
       const result = boys;
-      return [a, b, c, d, e, result, ...createExampleList(result, 100, '명')];
+      return {
+        args: [a, b, c, d, e],
+        examples: createExampleList(result, 100, '명')
+      }
     }
   },
   {
@@ -34,7 +37,10 @@ module.exports = [
       const f = highschool > newHighschool ? '감소' : '증가';
       const newTotal = newHighschool + newUniversity;
       const result = newHighschool;
-      return [a, Math.abs(b), Math.abs(c), newTotal, e, f, result, ...createExampleList(result, getRandomValue(10, 100, 10), '명')];
+      return {
+        args: [a, Math.abs(b), Math.abs(c), newTotal, e, f,],
+        examples: createExampleList(result, getRandomValue(10, 100, 10), '명')
+      }
     }
   },
   {
@@ -62,7 +68,11 @@ module.exports = [
       const f = officeWoman / gcdOffice;
       const g = man + woman;
       const result = factoryMan + factoryWoman;
-      return [a, b, c, d, e, f, g, result, ...createExampleList(result, null, '명')];
+
+      return {
+        args: [a, b, c, d, e, f, g],
+        examples: createExampleList(result, null, '명')
+      }
     }
   }
 ];

@@ -10,7 +10,10 @@ module.exports = [
       const b = a + getRandomValue(1, 10);
       const sum = (1 / a) + (1 / b);
       const result = Number((1 / sum).toFixed(2));
-      return [a, b, result, ...createExampleList(result, null, '시간')];
+      return {
+        args: [a, b],
+        examples: createExampleList(result, null, '시간')
+      }
     }
   },
   {
@@ -21,7 +24,10 @@ module.exports = [
       const c = getRandomValue(1, a - 1);
       const d = getRandomValue(b + 2, b + 20);
       const result = d - Number((c * (b - d) / (a - c)).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, null, '일')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, null, '일')
+      }
     }
   },
 ];

@@ -97,15 +97,12 @@ exports.generate = (type = 'salt', count = 10) => {
   if (list) {
   _.each(problemCount, (value, key) => {
       const problem = list[getRandomValue(0, list.length - 0.001)];
-      const variableList = problem.formula();
-      console.log(variableList);
-      const title = this.titleTemplate(problem.title, variableList);
-      const examples = variableList.slice(-6, -1);
-      const correct = Number(variableList.slice(-1)[0]);
+      const formulaResult = problem.formula();
+      const title = this.titleTemplate(problem.title, formulaResult.args);
       resultList.push({
         title,
-        examples,
-        correct
+        examples: formulaResult.examples.labels,
+        answerIndex: formulaResult.examples.answerIndex
       });
     });
   }

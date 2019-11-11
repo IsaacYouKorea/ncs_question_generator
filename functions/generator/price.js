@@ -16,7 +16,10 @@ module.exports = [
       const c = Math.round(price * discount);
       const result = Number(Math.abs(orgPrice - c));
       const diff = getRandomValue(1000, 5000, 1000);
-      return [a, b, c, result, ...createExampleList(result, diff, '원')];
+      return {
+        args: [a, b, c],
+        examples: createExampleList(result, diff, '원')
+      }
     }
   },
   {
@@ -30,7 +33,10 @@ module.exports = [
       const bPrice = bCost * realPercent;
       const sumCost = aCost + bCost;
       const diffPrice = Math.round(aPrice - bPrice);
-      return [percent, diffPrice, sumCost, aPrice, ...createExampleList(aPrice, getRandomValue(1000, 3000, 500), '원')];
+      return {
+        args: [percent, diffPrice, sumCost],
+        examples: createExampleList(aPrice, getRandomValue(1000, 3000, 500), '원')
+      }
     },
   }
 ];

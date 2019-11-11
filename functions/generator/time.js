@@ -11,7 +11,10 @@ module.exports = [
       const c = getRandomValue(200, 500, 10);
       const d = getRandomValue(10, 20);
       const result = Number(Math.abs(((b * c) - (d * a)) / (d - b)).toFixed(2));
-      return [a, b, c, d, result, ...createExampleList(result, null, 'm')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, null, 'm')
+      }
     }
   },
   {
@@ -21,7 +24,10 @@ module.exports = [
       const b = getRandomValue(30, 300);
       const speed = (a * 10 / 36);
       const result = Number(Math.abs(a / speed).toFixed(2));
-      return [a, b, result, ...createExampleList(result, null, '초')];
+      return {
+        args: [a, b],
+        examples: createExampleList(result, null, '초')
+      }
     }
   },
   {
@@ -30,7 +36,10 @@ module.exports = [
       const a = getRandomValue(1, 10) / 10;
       const b = getRandomValue(1, 10) / 10;
       const result = 95 * a + 49 * b;
-      return [a, b, result, ...createExampleList(result, null, '초')];
+      return {
+        args: [a, b],
+        examples: createExampleList(result, null, '초')
+      }
     }
   },
   {
@@ -40,9 +49,12 @@ module.exports = [
       const b = getRandomValue(2, 16);
       const c = getRandomValue(2, 16);
       const d = getRandomValue(2, 16);
-      const lcmValue = lcm(a + b, c + d);
+      const lcmValue = util.lcm(a + b, c + d);
       const result = lcmValue / (a + b);
-      return [a, b, c, d, result, ...createExampleList(result, null, '회')];
+      return {
+        args: [a, b, c, d],
+        examples: createExampleList(result, null, '회')
+      }
     }
   },
 ];
