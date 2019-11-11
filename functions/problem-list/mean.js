@@ -1,4 +1,4 @@
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 const createExampleList = util.createExampleList;
 
@@ -18,7 +18,7 @@ module.exports = [
       const j = getRandomValue(150, 190);
 
       const total = a + b + c + d + e + f + g + h + i + j;
-      const result = +(total / 10).toFixed(2);
+      const result = Number((total / 10).toFixed(2));
 
       return [a, b, c, d, e, f, g, h, i, j, result, ...createExampleList(result, 2, 'cm')];
     }
@@ -38,7 +38,7 @@ module.exports = [
       const j = getRandomValue(50, 100);
 
       const total = a + b + c + d + e + f + g + h + i + j;
-      const result = +(total / 10).toFixed(2);
+      const result = Number((total / 10).toFixed(2));
 
       return [a, b, c, d, e, f, g, h, i, j, result, ...createExampleList(result, 2, 'kg')];
     }
@@ -58,7 +58,7 @@ module.exports = [
       const j = getRandomValue(230, 290);
 
       const total = a + b + c + d + e + f + g + h + i + j;
-      const result = +(total / 10).toFixed(2);
+      const result = Number((total / 10).toFixed(2));
 
       return [a, b, c, d, e, f, g, h, i, j, result, ...createExampleList(result, 2, 'mm')];
     }

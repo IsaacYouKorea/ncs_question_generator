@@ -1,4 +1,4 @@
-import {getRandomValue, createExampleList} from './util';
+import {getRandomValue, createExampleList} from '../utils/util';
 
 module.exports = [
   {
@@ -6,7 +6,7 @@ module.exports = [
     formula: () => {
       const a = getRandomValue(1, 11);
       const b = a + 1;
-      const result = +(a * 30 / 5.5).toFixed(2);
+      const result = Number((a * 30 / 5.5).toFixed(2));
       return [a, b, result, ...createExampleList(result)];
     }
   },
@@ -15,7 +15,7 @@ module.exports = [
     formula: () => {
       const a = getRandomValue(1, 11);
       const b = a + 1;
-      const result = +((a * 30 + 180) / 5.5).toFixed(2);
+      const result = Number(((a * 30 + 180) / 5.5).toFixed(2));
       return [a, b, result, ...createExampleList(result)];
     }
   }

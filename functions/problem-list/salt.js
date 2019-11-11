@@ -1,4 +1,4 @@
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 const createExampleList = util.createExampleList;
 
@@ -15,7 +15,7 @@ module.exports = [
       const d = diff * getRandomValue(10, 30);
       const valueA = (diffA / diff) * d;
       const valueB = (diffB / diff) * d;
-      const result = +Math.abs(valueA - valueB).toFixed(2);
+      const result = Number(Math.abs(valueA - valueB).toFixed(2));
       return [a, b, c, d, result, ...createExampleList(result, null, 'g')];
     }
   },
@@ -28,7 +28,7 @@ module.exports = [
       const percentA = a / 100;
       const percentC = c / 100;
       const target = ( (percentC * b) - (percentA * b)) / (1 - percentC);
-      const result = +Math.abs(target).toFixed(2);
+      const result = Number(Math.abs(target).toFixed(2));
       return [a, b, c, result, ...createExampleList(result, null, 'g')];
     }
   }

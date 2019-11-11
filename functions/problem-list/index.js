@@ -9,7 +9,7 @@ const work = require('./work');
 const machine = require('./machine');
 const speed = require('./speed');
 const _ = require('lodash');
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 
 const problemList = [
@@ -116,7 +116,7 @@ exports.titleTemplate = (title, params) => {
   const result = title.replace(/{\d}+/g, (num) => {
     num = num.replace('{', '');
     num = num.replace('}', '');
-    num = +num;
+    num = Number(num);
     return params ? (params[num] || '') : '';
   });
   return result;

@@ -36,6 +36,5 @@ const gcd = (a, b) => {
 exports.gcd = gcd;
 
 exports.lcm = (a, b) => {
-  // console.log(a, b, gcd);
   return a * b / gcd(a, b);
 };

@@ -1,4 +1,4 @@
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 const createExampleList = util.createExampleList;
 
@@ -13,7 +13,7 @@ module.exports = [
       const faultA = Math.round((a * 100) * (c / 100));
       const faultB = Math.round((b * 100) * (d / 100));
       const faultTotal = faultA + faultB;
-      const result = +(faultA / faultTotal * 100).toFixed(2);
+      const result = Number((faultA / faultTotal * 100).toFixed(2));
       return [a, b, c, d, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },
@@ -27,7 +27,7 @@ module.exports = [
       const faultA = Math.round((a * 100) * (c / 100));
       const faultB = Math.round((b * 100) * (d / 100));
       const faultTotal = faultA + faultB;
-      const result = +(faultB / faultTotal * 100).toFixed(2);
+      const result = Number((faultB / faultTotal * 100).toFixed(2));
       return [a, b, c, d, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },
@@ -41,7 +41,7 @@ module.exports = [
       const normalA = Math.round((a * 100) * ((100 - c) / 100));
       const normalB = Math.round((b * 100) * ((100 - d) / 100));
       const normalTotal = normalA + normalB;
-      const result = +(normalA / normalTotal * 100).toFixed(2);
+      const result = Number((normalA / normalTotal * 100).toFixed(2));
       return [a, b, c, d, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },

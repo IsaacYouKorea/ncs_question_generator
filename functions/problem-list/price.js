@@ -1,4 +1,4 @@
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 const createExampleList = util.createExampleList;
 
@@ -14,7 +14,7 @@ module.exports = [
       const b = getRandomValue(10, 80, 10);
       const discount = ((100 - b) / 100);
       const c = Math.round(price * discount);
-      const result = +Math.abs(orgPrice - c);
+      const result = Number(Math.abs(orgPrice - c));
       const diff = getRandomValue(1000, 5000, 1000);
       return [a, b, c, result, ...createExampleList(result, diff, '원')];
     }

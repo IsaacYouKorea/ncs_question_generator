@@ -1,4 +1,4 @@
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 const createExampleList = util.createExampleList;
 
@@ -11,7 +11,7 @@ module.exports = [
       const singleMan = getRandomValue(3, man);
       const singleWoman = getRandomValue(3, woman);
       const singleTotal = singleMan + singleWoman;
-      const result = +(singleWoman / singleTotal * 100).toFixed(2);
+      const result = Number((singleWoman / singleTotal * 100).toFixed(2));
       return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },
@@ -23,7 +23,7 @@ module.exports = [
       const singleMan = getRandomValue(3, man);
       const singleWoman = getRandomValue(3, woman);
       const singleTotal = singleMan + singleWoman;
-      const result = +(singleMan / singleTotal * 100).toFixed(2);
+      const result = Number((singleMan / singleTotal * 100).toFixed(2));
       return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },
@@ -35,7 +35,7 @@ module.exports = [
       const singleMan = getRandomValue(3, man);
       const singleWoman = getRandomValue(3, woman);
       const coupleTotal = (man - singleMan) + (woman - singleWoman);
-      const result = +( (man - singleMan) / coupleTotal * 100).toFixed(2);
+      const result = Number(( (man - singleMan) / coupleTotal * 100).toFixed(2));
       return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },
@@ -47,7 +47,7 @@ module.exports = [
       const singleMan = getRandomValue(3, man);
       const singleWoman = getRandomValue(3, woman);
       const coupleTotal = (man - singleMan) + (woman - singleWoman);
-      const result = +( (woman - singleWoman) / coupleTotal * 100).toFixed(2);
+      const result = Number(( (woman - singleWoman) / coupleTotal * 100).toFixed(2));
       return [man, woman, singleMan, singleWoman, result, ...createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')];
     }
   },

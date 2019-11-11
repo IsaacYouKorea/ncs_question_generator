@@ -1,4 +1,4 @@
-const util = require('./util');
+const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 const createExampleList = util.createExampleList;
 
@@ -9,7 +9,7 @@ module.exports = [
       const a = getRandomValue(5, 18);
       const b = a + getRandomValue(1, 10);
       const sum = (1 / a) + (1 / b);
-      const result = +(1 / sum).toFixed(2);
+      const result = Number((1 / sum).toFixed(2));
       return [a, b, result, ...createExampleList(result, null, '시간')];
     }
   },
@@ -20,7 +20,7 @@ module.exports = [
       const b = getRandomValue(7, 20);
       const c = getRandomValue(1, a - 1);
       const d = getRandomValue(b + 2, b + 20);
-      const result = d - +(c * (b - d) / (a - c)).toFixed(2);
+      const result = d - Number((c * (b - d) / (a - c)).toFixed(2));
       return [a, b, c, d, result, ...createExampleList(result, null, '일')];
     }
   },
