@@ -94,11 +94,11 @@ exports.generate = (type = 'salt', count = 10) => {
   const list = _.find(problemList, {'id': type}).problem;
   const problemCount = _.range(0, count); 
   const resultList = [];
-  // now I iterate over it
   if (list) {
   _.each(problemCount, (value, key) => {
       const problem = list[getRandomValue(0, list.length - 0.001)];
       const variableList = problem.formula();
+      console.log(variableList);
       const title = this.titleTemplate(problem.title, variableList);
       const examples = variableList.slice(-6, -1);
       const correct = Number(variableList.slice(-1)[0]);

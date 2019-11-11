@@ -1,6 +1,5 @@
 const functions = require('firebase-functions');
-const problemList = require('./problem-list');
-// import problemList from './problem-list/index';
+const generator = require('./generator');
 
 exports.bigben = functions.https.onRequest((req, res) => {
   const hours = (new Date().getHours() % 12) + 1  // London is UTC + 1hr;
@@ -15,43 +14,43 @@ exports.bigben = functions.https.onRequest((req, res) => {
 });
 
 
-exports.problemList = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList);
+exports.generator = functions.https.onRequest((req, res) => {
+  res.status(200).send(generator);
 });
 
 exports.machine = functions.https.onRequest((req, res) => {
   console.log(req);
-  res.status(200).send(problemList.generate('machine'));
+  res.status(200).send(generator.generate('machine'));
 });
 
 exports.mean = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('mean'));
+  res.status(200).send(generator.generate('mean'));
 });
 
 exports.percentage = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('percentage'));
+  res.status(200).send(generator.generate('percentage'));
 });
 
 exports.price = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('price'));
+  res.status(200).send(generator.generate('price'));
 });
 
 exports.ratio = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('ratio'));
+  res.status(200).send(generator.generate('ratio'));
 });
 
 exports.salt = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('salt'));
+  res.status(200).send(generator.generate('salt'));
 });
 
 exports.speed = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('speed'));
+  res.status(200).send(generator.generate('speed'));
 });
 
 exports.time = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('time'));
+  res.status(200).send(generator.generate('time'));
 });
 
 exports.work = functions.https.onRequest((req, res) => {
-  res.status(200).send(problemList.generate('work'));
+  res.status(200).send(generator.generate('work'));
 });
