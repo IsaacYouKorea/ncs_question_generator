@@ -1,3 +1,5 @@
+const numeral = require('numeral');
+
 const getRandomValue = (min, max, divisor = 1, isInteger = true) => {
   if (min > max) {
     const temp = min;
@@ -27,7 +29,7 @@ exports.createExampleList = (answer, diff = null, endString = '') => {
     diff = Math.max(getRandomValue(answer * 0.05, answer * 0.15), 1);
   }
   for (let i = 0; i < count; i++) {
-    const example = Number(answer + (diff * (i - answerIndex))).toFixed(2);
+    const example = numeral(answer + (diff * (i - answerIndex))).format('0,0.[00]');
     result.labels.push(example + endString);
   }
   return result;
