@@ -1,17 +1,6 @@
 const functions = require('firebase-functions');
 const generator = require('./generator');
-
-exports.bigben = functions.https.onRequest((req, res) => {
-  const hours = (new Date().getHours() % 12) + 1  // London is UTC + 1hr;
-  res.status(200).send(`<!doctype html>
-    <head>
-      <title>Time</title>
-    </head>
-    <body>
-      ${'BONG '.repeat(hours)}
-    </body>
-  </html>`);
-});
+const categories = require('./categories');
 
 
 exports.generator = functions.https.onRequest((req, res) => {
@@ -19,7 +8,6 @@ exports.generator = functions.https.onRequest((req, res) => {
 });
 
 exports.machine = functions.https.onRequest((req, res) => {
-  console.log(req);
   res.status(200).send(generator.generate('machine'));
 });
 
@@ -53,4 +41,8 @@ exports.time = functions.https.onRequest((req, res) => {
 
 exports.work = functions.https.onRequest((req, res) => {
   res.status(200).send(generator.generate('work'));
+});
+
+exports.categories = functions.https.onRequest((req, res) => {
+  res.status(200).send(categories);
 });
