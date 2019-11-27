@@ -106,7 +106,10 @@ exports.generate = (type = 'salt', count = 10) => {
       });
     });
   }
-  return resultList;
+  return {
+    type,
+    quizs: resultList
+  }
 }
 
 exports.titleTemplate = (title, params) => {
