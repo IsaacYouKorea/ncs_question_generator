@@ -79,7 +79,7 @@ module.exports = [
       result = result * 100;
 
       return {
-        args: [totalBall, blueBall, whiteBall],
+        args: [totalBall, blueBall, whiteBall, extractCount],
         examples: createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')
       }
     },
@@ -101,7 +101,7 @@ module.exports = [
       result = 100 - (result * 100);
 
       return {
-        args: [totalBall, blueBall, whiteBall, redBall],
+        args: [totalBall, blueBall, whiteBall, redBall, extractCount],
         examples: createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')
       }
     },
