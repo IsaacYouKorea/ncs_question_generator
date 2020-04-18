@@ -19,6 +19,10 @@ exports.percentage = functions.https.onRequest((req, res) => {
   res.status(200).send(generator.generate('percentage'));
 });
 
+exports.age = functions.https.onRequest((req, res) => {
+  res.status(200).send(generator.generate('age'));
+});
+
 exports.price = functions.https.onRequest((req, res) => {
   res.status(200).send(generator.generate('price'));
 });
