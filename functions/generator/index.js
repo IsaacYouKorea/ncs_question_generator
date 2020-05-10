@@ -86,6 +86,7 @@ const problemList = [
   }
 ];
 
+
 exports.list = _.orderBy(problemList, (category) => {
   return category.count;
 }, 'desc');
@@ -102,7 +103,8 @@ exports.generate = (type = 'salt', count = 10) => {
       resultList.push({
         title,
         examples: formulaResult.examples.labels,
-        answerIndex: formulaResult.examples.answerIndex
+        answerIndex: formulaResult.examples.answerIndex,
+        solving: formulaResult.solving ? formulaResult.solving.trim().replace() : '',
       });
     });
   }
