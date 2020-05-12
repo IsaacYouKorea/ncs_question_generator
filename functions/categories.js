@@ -71,7 +71,7 @@ const problemList = [
     id: 'speed',
     title: '속력',
     count: speed.length,
-    isPublic: false,
+    isPublic: true,
   }
 ];
 
