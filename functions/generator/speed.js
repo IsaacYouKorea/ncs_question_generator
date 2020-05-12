@@ -32,19 +32,22 @@ x ≈ ${result}
 //   {
 //     title: `길이가 {0}m인 두 열차가 각각 시속 {1}km로 마주보며 접근하고 있다. 두 열차가 완전히 스치고 지나갈 때까지 걸리는 시간은?`,
 //     formula: () => {
-//       const a = getRandomValue(50, 400);
-//       // const b = getRandomValue(30, 300);
-//       const second = getRandomValue(50, 200, 36) / 10;
-//       const b = (a * 1000) / (second * 3600); // km/시간
-//       const result = 0;
+//       // const a = getRandomValue(50, 400);
+//       const result = getRandomValue(4, 50);
+//       const b = getRandomValue(50, 360);
+//       const secondSpeed = (b * 10) / 36; // m/초
+//       const a = getRandomValue(50, 400, b);
+      
+//       // const b = (a * 10) / (second * 36); // km/시간
+//       // const result = 0;
 
 //       return {
 //         args: [a, b],
 //         examples: createExampleList(result, null, '초'),
 //         solving: `이동거리 : ${a} * 2
-// 초속(m/2) : ${b} * 2 * 1000 / 3600 = ${b * 2000 / 3600}(m/초)
+// 초속(m/2) : ${b} * 2 * 1000 / 3600 = ${b * 20 / 36}(m/초)
 // 이동거리 ${a * 2}m를 이동하는데 걸린 시간
-// ${a * 2} / ${b * 2000 / 3600} = ${second}초
+// ${a * 2} / ${b * 2000 / 3600} = ${result}초
 // `
 //       }
 //     }
