@@ -104,7 +104,7 @@ exports.generate = (type = 'salt', count = 10) => {
         title,
         examples: formulaResult.examples.labels,
         answerIndex: formulaResult.examples.answerIndex,
-        solving: formulaResult.solving ? formulaResult.solving.trim().replace() : '',
+        solving: formulaResult.solving ? formulaResult.solving.trim().replace() : '준비중입니다',
       });
     });
   }
