@@ -55,22 +55,4 @@ module.exports = [
       };
     }
   },
-  // {
-  //   title: `생산 기계는 {0}분마다 1개의 제품을 생산하며 총 {1}대가 있다. 포장 기계는 {2}분에 1개를 포장하며 총 {3}대가 있다. 하루에 오전 9시부터 오후 5시까지 기계를 가동했을 때, 포장 못한 상품은 몇 개인가? (1시 ~ 2시는 점심시간으로 작업을 진행하지 않고, 어제 미처 포장못 한 상품은 {4}개이다)`,
-  //   formula: () => {
-  //     const a = getRandomValue(2, 6);
-  //     const b = getRandomValue(4, 15);
-  //     const c = getRandomValue(2, 6);
-  //     const d = getRandomValue(4, 15);
-  //     const e = getRandomValue(50, 200, 10);
-  //     const valueA = (60 / a) * b;
-  //     const valueB = (60 / c) * d;
-  //     if (valueA > valueB) {
-  //       const result = ((60 / a) * 7 * b + e) - ((60 / c) * 7 * d);
-  //       return [a, b, c, d, e, result, ...createExampleList(result, null, '개')];
-  //     }
-  //     const result = ((60 / c) * 7 * d + e) - ((60 / a) * 7 * b);
-  //     return [c, d, a, b, e, result, ...createExampleList(result, null, '개')];
-  //   }
-  // }
 ];

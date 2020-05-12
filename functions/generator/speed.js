@@ -6,19 +6,25 @@ module.exports = [
   {
     title: '속력이 일정한 기차가 {0}m인 다리를 완전히 통과하는데 {1}초가 걸리고, {2}m인 터널을 완전히 통과하는데 {3}초가 걸린다. 이 때 기차의 길이를 고르면?',
     formula: () => {
-      const a = getRandomValue(100, 200, 10);
       const b = getRandomValue(2, 10);
-      const c = getRandomValue(200, 500, 10);
-      const d = getRandomValue(10, 20);
-      const result = Number(((d*a - d*c) / (b-d)).toFixed(2));
+      const totalDistance = getRandomValue(100, 200, b);
+      const train = getRandomValue(30, 80);
+      const a = totalDistance - train;
+      const speed = (a + train) / b;
+      const d = b * 2;
+      const c = speed * d;
+      const bc = b*c;
+      const da = d*a;
+      const result = Number(((bc - da)/(d-b)).toFixed(2));
+      
       return {
         args: [a, b, c, d],
         examples: createExampleList(result, null, 'm'),
-        solving: `(${a} + x) / ${b} = (${c} + x) / ${d}
-${b}(${c} + x) = ${d}(${a} + x)
-${b*c} + ${b}x = ${d*a} + ${d}x
-${d-b}x = ${d*c - d*a}
-x ≈ ${Number(((d*a - d*c) / (b-d)).toFixed(2))}
+        solving: `(${a} + x)/${b} = (${c} + x)/${d}
+${d}(${a} + x) = ${b}(${c} + x)
+${da} + ${d}x = ${bc} + ${b}x
+${d-b}x = ${bc - da}
+x ≈ ${result}
         `
       }
     }

@@ -14,7 +14,9 @@ module.exports = [
       const result = Number((singleWoman / singleTotal * 100).toFixed(2));
       return {
         args: [man, woman, singleMan, singleWoman],
-        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%'),
+        solving: `싱글 전체 ${singleMan} + ${singleWoman} = ${singleTotal}
+싱글 중 여자일 확률 ${singleWoman}/${singleTotal}*100 ≈ ${result}` 
       }
     }
   },
@@ -29,7 +31,9 @@ module.exports = [
       const result = Number((singleMan / singleTotal * 100).toFixed(2));
       return {
         args: [man, woman, singleMan, singleWoman],
-        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%'),
+        solving: `싱글 전체 ${singleMan} + ${singleWoman} = ${singleTotal}
+싱글 중 남자일 확률 ${singleMan}/${singleTotal}*100 ≈ ${result}`
       }
     }
   },
@@ -40,11 +44,16 @@ module.exports = [
       const woman = getRandomValue(3, 200);
       const singleMan = getRandomValue(3, man);
       const singleWoman = getRandomValue(3, woman);
+      const singleTotal = singleMan + singleWoman;
       const coupleTotal = (man - singleMan) + (woman - singleWoman);
       const result = Number(( (man - singleMan) / coupleTotal * 100).toFixed(2));
       return {
         args: [man, woman, singleMan, singleWoman],
-        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%'),
+        solving: `싱글 전체 ${singleMan} + ${singleWoman} = ${singleTotal}
+싱글이 아닌 사람 수 ${man}+${woman}-${singleTotal} = ${coupleTotal}
+싱글 남자 수 ${man - singleMan}
+싱글 중 남자일 확률 ${man - singleMan}/${coupleTotal}*100 ≈ ${result}`
       }
     }
   },
@@ -55,11 +64,16 @@ module.exports = [
       const woman = getRandomValue(3, 200);
       const singleMan = getRandomValue(3, man);
       const singleWoman = getRandomValue(3, woman);
+      const singleTotal = singleMan + singleWoman;
       const coupleTotal = (man - singleMan) + (woman - singleWoman);
       const result = Number(( (woman - singleWoman) / coupleTotal * 100).toFixed(2));
       return {
         args: [man, woman, singleMan, singleWoman],
-        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%')
+        examples: createExampleList(result, getRandomValue(0.3, 2, 0.1, false), '%'),
+        solving: `싱글 전체 ${singleMan} + ${singleWoman} = ${singleTotal}
+싱글이 아닌 사람 수 ${man}+${woman}-${singleTotal} = ${coupleTotal}
+싱글 여자 수 ${woman - singleWoman}
+싱글 중 여자일 확률 ${woman - singleWoman}/${coupleTotal}*100 ≈ ${result}`
       }
     }
   },
@@ -80,7 +94,7 @@ module.exports = [
 
       return {
         args: [totalBall, blueBall, whiteBall, extractCount],
-        examples: createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%')
+        examples: createExampleList(result, getRandomValue(0.5, 2, 0.1, false), '%'),
       }
     },
   },

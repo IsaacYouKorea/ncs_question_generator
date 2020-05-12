@@ -4,33 +4,6 @@ const createExampleList = util.createExampleList;
 
 module.exports = [
   {
-    title: '속력이 일정한 기차가 {0}m인 다리를 완전히 통과하는데 {1}초가 걸리고, {2}m인 터널을 완전히 통과하는데 {3}초가 걸린다. 이 때 기차의 길이를 고르면?',
-    formula: () => {
-      const a = getRandomValue(100, 200, 10);
-      const b = getRandomValue(2, 10);
-      const c = getRandomValue(200, 500, 10);
-      const d = getRandomValue(10, 20);
-      const result = Number(Math.abs(((b * c) - (d * a)) / (d - b)).toFixed(2));
-      return {
-        args: [a, b, c, d],
-        examples: createExampleList(result, null, 'm')
-      }
-    }
-  },
-  {
-    title: `길이가 {0}m인 두 열차가 각각 시속 {1}km로 마주보며 접근하고 있다. 두 열차가 완전히 스치고 지나갈 때까지 걸리는 시간은?`,
-    formula: () => {
-      const a = getRandomValue(50, 400);
-      const b = getRandomValue(30, 300);
-      const speed = (a * 10 / 36);
-      const result = Number(Math.abs(a / speed).toFixed(2));
-      return {
-        args: [a, b],
-        examples: createExampleList(result, null, '초')
-      }
-    }
-  },
-  {
     title: `키보드 자판을 이용하여 1~9사이의 숫자를 입력할 때, 숫자 1개당 {0}초가 걸리고 콤마(,)의 경우는 {1}초가 걸린다고 할 때, 아래의 숫자와 기호를 모두 입력할 때 걸리는 시간은 얼마인가?\n1, 3, 5, 7, 9, ..., 91, 93, 95, 97, 99`,
     formula: () => {
       const a = getRandomValue(1, 10) / 10;
@@ -38,7 +11,11 @@ module.exports = [
       const result = 95 * a + 49 * b;
       return {
         args: [a, b],
-        examples: createExampleList(result, null, '초')
+        examples: createExampleList(result, null, '초'),
+        solving: `한 자리 5개 + 두 자리 45개 = 5*1 + 45*2 = 95
+, 개수 49개
+95*${a} + 49*${b}= ${result}
+`
       }
     }
   },
@@ -49,11 +26,18 @@ module.exports = [
       const b = getRandomValue(2, 16);
       const c = getRandomValue(2, 16);
       const d = getRandomValue(2, 16);
-      const lcmValue = util.lcm(a + b, c + d);
-      const result = lcmValue / (a + b);
+      const sumBulb = a + b;
+      const sumRadio = c + d;
+      const lcmValue = util.lcm(sumBulb, sumRadio);
+      const result = lcmValue / (sumBulb);
       return {
         args: [a, b, c, d],
-        examples: createExampleList(result, null, '회')
+        examples: createExampleList(result, null, '회'),
+        solving: `전등의 한 사이클 걸리는 시간 ${a}+${b}=${sumBulb}
+라디오의 한 사이클 걸리는 시간 ${c}+${d}=${sumRadio}
+${sumBulb}, ${sumRadio}의 최소 공배수 ${lcmValue}
+${lcmValue}초 동안 전등이 꺼진 횟수 ${lcmValue}/${sumBulb}
+`
       }
     }
   },

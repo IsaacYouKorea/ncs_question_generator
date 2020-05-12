@@ -22,7 +22,12 @@ module.exports = [
 
       return {
         args: [a, b, c, d, e, f, g, h, i, j],
-        examples: createExampleList(result, 2, 'cm')
+        examples: createExampleList(result, 2, 'cm'),
+        solving: `대략적인 값 170을 기준 잡음
+${a-170}   ${b-170}   ${c-170}   ${d-170}   ${e-170}   ${f-170}   ${g-170}   ${h-170}   ${i-170}   ${j-170}
+170 + ${total-1700}/10
+평균 : ${total/10}
+`
       }
     }
   },
@@ -45,7 +50,12 @@ module.exports = [
 
       return {
         args: [a, b, c, d, e, f, g, h, i, j],
-        examples: createExampleList(result, 2, 'kg')
+        examples: createExampleList(result, 2, 'kg'),
+        solving: `대략적인 값 70을 기준 잡음
+${a-70}   ${b-70}   ${c-70}   ${d-70}   ${e-70}   ${f-70}   ${g-70}   ${h-70}   ${i-70}   ${j-70}
+70 + ${total-700}/10
+평균 : ${total/10}
+`
       }
     }
   },
@@ -68,7 +78,12 @@ module.exports = [
 
       return {
         args: [a, b, c, d, e, f, g, h, i, j],
-        examples: createExampleList(result, 2, 'mm')
+        examples: createExampleList(result, 2, 'mm'),
+        solving: `대략적인 값 260을 기준 잡음
+${a-260}   ${b-260}   ${c-260}   ${d-260}   ${e-260}   ${f-260}   ${g-260}   ${h-260}   ${i-260}   ${j-260}
+260 + ${total-2600}/10
+평균 : ${total/10}
+`
       }
     }
   }
