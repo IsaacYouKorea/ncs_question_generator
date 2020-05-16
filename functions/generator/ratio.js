@@ -73,48 +73,48 @@ y = ${(a*b - (newTotal-a)*100) / (b-c)}
       }
     }
   },
-  {
-    title: `어느 회사 신입사원의 전체 남녀의 비는 {0}:{1}, 생산직 신입 사원의 남녀의 비는 {2}:{3}, 사무직 신입 사원의 남녀 비는 {4}:{5} 이다. 신입 사원의 수가 {6}명일 때, 생산직 신입 사원의 수를 고르면? (단, 신입사원은 생산직과 사무직 뿐이다)`,
-    formula: () => {
-      const factoryCommonDiv = getRandomValue(10, 100, 10);
-      const officeCommonDiv = getRandomValue(10, 100, 10);
-      const factoryWoman = getRandomValue(100, 300, factoryCommonDiv);
-      const factoryMan = getRandomValue(100, 300, factoryCommonDiv);
-      const officeMan = getRandomValue(100, 300, officeCommonDiv);
-      const officeWoman = getRandomValue(100, 300, officeCommonDiv);
-      const man = factoryMan + officeMan;
-      const woman = factoryWoman + officeWoman;
+//   {
+//     title: `어느 회사 신입사원의 전체 남녀의 비는 {0}:{1}, 생산직 신입 사원의 남녀의 비는 {2}:{3}, 사무직 신입 사원의 남녀 비는 {4}:{5} 이다. 신입 사원의 수가 {6}명일 때, 생산직 신입 사원의 수를 고르면? (단, 신입사원은 생산직과 사무직 뿐이다)`,
+//     formula: () => {
+//       const factoryCommonDiv = getRandomValue(10, 90, 10);
+//       const officeCommonDiv = getRandomValue(10, 90, 10);
+//       const factoryWoman = getRandomValue(100, 700, factoryCommonDiv);
+//       const factoryMan = getRandomValue(100, 700, factoryCommonDiv);
+//       const officeMan = getRandomValue(100, 700, officeCommonDiv);
+//       const officeWoman = getRandomValue(100, 700, officeCommonDiv);
+//       const man = factoryMan + officeMan;
+//       const woman = factoryWoman + officeWoman;
 
-      const gcdManWoman = gcd(man, woman);
-      const a = man / gcdManWoman;
-      const b = woman / gcdManWoman;
+//       const gcdManWoman = gcd(man, woman);
+//       const a = man / gcdManWoman;
+//       const b = woman / gcdManWoman;
 
-      const gcdFactory = gcd(factoryMan, factoryWoman);
-      const c = factoryMan / gcdFactory;
-      const d = factoryWoman / gcdFactory;
+//       const gcdFactory = gcd(factoryMan, factoryWoman);
+//       const c = factoryMan / gcdFactory;
+//       const d = factoryWoman / gcdFactory;
 
-      const gcdOffice = gcd(officeMan, officeWoman);
-      const e = officeMan / gcdOffice;
-      const f = officeWoman / gcdOffice;
-      const g = man + woman;
-      const result = factoryMan + factoryWoman;
+//       const gcdOffice = gcd(officeMan, officeWoman);
+//       const e = officeMan / gcdOffice;
+//       const f = officeWoman / gcdOffice;
+//       const g = man + woman;
+//       const result = factoryMan + factoryWoman;
 
-      return {
-        args: [a, b, c, d, e, f, g],
-        examples: createExampleList(result, null, '명'),
-        solving: `전체 신입 사원 중 남자 ${g}*${a}/${a+b}=${man}명, 여자는 ${g}*${b}/${a+b}=${woman}명
-생산직 남자 신입 사원${c}x, 생산직 여자 신입 사원${d}x
-사무직 남자 신입 사원을 ${e}y, 여자를 ${f}y라고 하면
-${c}x+${e}y = ${man}
-${d}x+${f}y = ${woman} => ${d * e/f}x+${e}y = ${woman * e/f}
+//       return {
+//         args: [a, b, c, d, e, f, g],
+//         examples: createExampleList(result, null, '명'),
+//         solving: `전체 신입 사원 중 남자 ${g}*${a}/${a+b}=${man}명, 여자는 ${g}*${b}/${a+b}=${woman}명
+// 생산직 남자 신입 사원${c}x, 생산직 여자 신입 사원${d}x
+// 사무직 남자 신입 사원을 ${e}y, 여자를 ${f}y라고 하면
+// ${c}x+${e}y = ${man}
+// ${d}x+${f}y = ${woman} => ${d * e/f}x+${e}y = ${woman * e/f}
 
-연립방정식으로 풀면
-${c - (d * (e/f))}x = ${man - (woman*(e/f))}
-x=${(man - (woman*(e/f))) / (c - (d * (e/f)))}
+// 연립방정식으로 풀면
+// ${c - (d * (e/f))}x = ${man - (woman*(e/f))}
+// x=${(man - (woman*(e/f))) / (c - (d * (e/f)))}
 
-생산직 인원 ${result}(명)
-`
-      }
-    }
-  }
+// 생산직 인원 ${result}(명)
+// `
+//       }
+//     }
+//   }
 ];
