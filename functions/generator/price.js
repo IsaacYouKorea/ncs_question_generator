@@ -18,24 +18,37 @@ module.exports = [
       const diff = getRandomValue(1000, 5000, 1000);
       return {
         args: [a, b, c],
-        examples: createExampleList(result, diff, '원')
+        examples: createExampleList(result, diff, '원'),
+        solving: `할인가 ${c}원은 정가의 ${100-b}%이므로 10%는 ${c / ((100-b)/10)}이다.
+따라서 정가는 10배하여 ${price}이다.
+그리고 정가는 원가의 ${a}배 이므로 원가는 ${orgPrice}이다.
+원가와 할인가격의 차이는 ${result}원이다`
       }
     }
   },
   {
-    title: '제품 A와 제품B는 각각 원가에 {0}%를 더한 가격을 정가로 한다. 이때, 두 제품의 정가 사이는 {1}원이다. 두 제품 A, B의 원가 합은 {2}원일 때, A의 정가는 얼마인가?(단, 원가는 A보다 B가 크다)',
+    title: '제품 A와 제품B는 각각 원가에 {0}%를 더한 가격을 정가로 한다. 이때, 두 제품의 정가 사이는 {1}원이다. 두 제품 A, B의 원가 합은 {2}원일 때, A의 정가는 얼마인가?(단, 원가는 A가 B보다 크다)',
     formula: () => {
       const bCost = getRandomValue(10000, 50000, 5000);
-      const aCost = bCost + getRandomValue(5000, 250000, 5000);
+      const aCost = bCost + getRandomValue(5000, 50000, 5000);
       const percent = getRandomValue(10, 40, 5);
       const realPercent = percent / 100 + 1;
-      const aPrice = aCost * realPercent;
-      const bPrice = bCost * realPercent;
+      const aPrice = Number((aCost * realPercent).toFixed(2));
+      const bPrice = Number((bCost * realPercent).toFixed(2));
       const sumCost = aCost + bCost;
       const diffPrice = Math.round(aPrice - bPrice);
+      console.log(aCost, bCost, aPrice, bPrice);
       return {
         args: [percent, diffPrice, sumCost],
-        examples: createExampleList(aPrice, getRandomValue(1000, 3000, 500), '원')
+        examples: createExampleList(aPrice, getRandomValue(1000, 3000, 500), '원'),
+        solving: `A와 B의 원가를 x, y로 정의
+x + y = ${sumCost}
+${realPercent}x - ${realPercent}y = ${diffPrice}
+연립방정식으로 풀면
+2x = ${aCost * 2}
+x = ${aCost}
+이므로 a의 정가 ${realPercent}x = ${aPrice}이다
+        `
       }
     },
   }
