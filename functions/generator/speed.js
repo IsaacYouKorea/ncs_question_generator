@@ -63,7 +63,12 @@ x ≈ ${result}
       const result = a * time;
       return {
         args: [length, a, b],
-        examples: createExampleList(result, null, 'm')
+        examples: createExampleList(result, null, 'm'),
+        solving: `두 사람의 속도는 ${a}m/s, ${b}m/s의 합이므로 ${sum}m/s이다.
+이 속도로 두 사람이 마주치는데 필요한 시간은 ${time}초이다.
+따라서 A가 운동장을 달린 거리는 ${result}m이다
+
+${length} / ${sum} * ${a} = ${result}`
       }
     }
   }

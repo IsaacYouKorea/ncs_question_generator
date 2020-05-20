@@ -8,6 +8,7 @@ const time = require('./time');
 const work = require('./work');
 const machine = require('./machine');
 const speed = require('./speed');
+const clock = require('./clock');
 const _ = require('lodash');
 const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
@@ -83,7 +84,14 @@ const problemList = [
     problem: speed,
     count: speed.length,
     isPublic: true,
-  }
+  },
+  {
+    id: 'clock',
+    title: '시계',
+    problem: clock,
+    count: clock.length,
+    isPublic: true,
+  },
 ];
 
 
