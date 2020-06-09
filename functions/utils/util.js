@@ -6,7 +6,7 @@ const getRandomValue = (min, max, divisor = 1, isInteger = true) => {
     min = max;
     max = temp;
   }
-  let result = Math.floor(((Math.random() * (max - min)) + min) / divisor) * divisor;
+  let result = Math.floor(Math.floor(((Math.random() * (max - min)) + min) / divisor) * divisor);
   if (isInteger) {
     result = Math.floor(result);
   }
