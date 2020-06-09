@@ -107,11 +107,11 @@ y = ${highschool}
 생산직 남자 신입 사원${c}x, 생산직 여자 신입 사원${d}x
 사무직 남자 신입 사원을 ${e}y, 여자를 ${f}y라고 하면
 ${c}x+${e}y = ${man}
-${d}x+${f}y = ${woman} => ${d * e/f}x+${e}y = ${woman * e/f}
+${d}x+${f}y = ${woman} => ${d*e}/${f}x+${e}y = ${woman}*${e}/${f}
 
 연립방정식으로 풀면
-${c - (d * (e/f))}x = ${man - (woman*(e/f))}
-x=${(man - (woman*(e/f))) / (c - (d * (e/f)))}
+${c} - ${(d*e)}/${f}x = ${man}- ${(woman*e)}/${f}
+x=${result}
 
 생산직 인원 ${result}(명)
 `
