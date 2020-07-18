@@ -13,7 +13,16 @@ const _ = require('lodash');
 const util = require('../utils/util');
 const getRandomValue = util.getRandomValue;
 
+allOfProblems = [...age, ...mean, ...percentage, ...price, ...ratio, ...salt, ...time, ...work, ...machine, ...speed, ...clock];
+
 const problemList = [
+  {
+    id: 'random',
+    title: '랜덤',
+    problem: allOfProblems,
+    count: allOfProblems.length,
+    isPublic: true,
+  },
   {
     id: 'age',
     title: '나이',

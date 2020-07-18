@@ -10,8 +10,15 @@ const machine = require('./generator/machine');
 const speed = require('./generator/speed');
 const _ = require('lodash');
 
+allOfProblems = [...age, ...mean, ...percentage, ...price, ...ratio, ...salt, ...time, ...work, ...machine, ...speed];
 
 const problemList = [
+  {
+    id: 'random',
+    title: '랜덤',
+    count: allOfProblems.length,
+    isPublic: true,
+  },
   {
     id: 'age',
     title: '나이',

@@ -50,3 +50,7 @@ exports.work = functions.https.onRequest((req, res) => {
 exports.categories = functions.https.onRequest((req, res) => {
   res.status(200).send(categories);
 });
+
+exports.random = functions.https.onRequest((req, res) => {
+  res.status(200).send(generator.generate('random'));
+});
